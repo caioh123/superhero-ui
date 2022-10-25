@@ -47,7 +47,6 @@ export const Filter = styled.div`
 `;
 
 export const ProductList = styled.ul`
-  background-color: red;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;

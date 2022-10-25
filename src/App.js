@@ -1,7 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect } from "react";
+import { getHeroes } from "./services/superHero.service";
 
 function App() {
+  useEffect(() => {
+    getHeroes().then(() => {
+      console.log("aqui");
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">

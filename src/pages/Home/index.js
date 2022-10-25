@@ -9,7 +9,9 @@ export const Home = () => {
   const [searchHeroInput, setSearchHeroInput] = useState("");
 
   useEffect(() => {
-    API.get(`${searchHeroInput}`);
+    API.get(`/search/${searchHeroInput}`).then((res) => {
+      setHero(res.data.results);
+    });
   }, [searchHeroInput]);
 
   return (
@@ -25,7 +27,13 @@ export const Home = () => {
         />
       </S.Filter>
       <S.Container>
-        <S.ProductList>a</S.ProductList>
+        <S.ProductList>
+          {hero ? (
+            hero.map((res) => <h1 style={{ background: "red" }}>{res.name}</h1>)
+          ) : (
+            <h1 style={{ background: "red" }}>Busque aqui</h1>
+          )}
+        </S.ProductList>
       </S.Container>
     </S.Wrapper>
   );

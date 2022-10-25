@@ -1,8 +1,17 @@
 import styled from "styled-components";
 import theme from "../../static/styles";
 
-export const Container = styled.div`
-  background-color: ${theme.pallete.primary.main};
+export const Container = styled.section`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 20px;
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr;
+    div#cart-section {
+      display: none;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -35,5 +44,31 @@ export const Filter = styled.div`
       outline: none;
       box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.3);
     }
+  }
+`;
+
+export const ProductList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  list-style: none;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 955px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const Total = styled.div`
+  display: flex;
+  align-items: baseline;
+  span {
+    color: #999;
+    font-weight: bold;
+  }
+  strong {
+    font-size: 28px;
+    margin-left: 5px;
   }
 `;

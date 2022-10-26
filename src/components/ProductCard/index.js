@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import { Link } from "react-router-dom";
-import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
 
 export const ProductCard = ({ hero }) => {
   console.log(hero);
@@ -19,7 +19,7 @@ export const ProductCard = ({ hero }) => {
         </div>
         <button type="button" className="addGroup">
           <div>
-            <AiOutlineUser size={16} />
+            <AiOutlineUserAdd size={16} />
           </div>
 
           <span>Adicionar grupo</span>

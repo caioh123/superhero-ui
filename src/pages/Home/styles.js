@@ -94,7 +94,7 @@ export const Groups = styled.aside`
   footer {
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     button {
       background: ${({ theme }) => theme.backgroundColor};

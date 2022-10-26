@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
 import API from "../../services/api";
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
-import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
 
 const styles = {
   main: {
@@ -53,7 +54,9 @@ export const Home = () => {
             <AiOutlineUser size={30} />
             <h2>Grupos</h2>
           </div>
-          <div id="groups-list">a</div>
+          <div id="groups-list">
+            <GroupTable />
+          </div>
           <footer>
             <button type="button">Criar novos grupos</button>
           </footer>

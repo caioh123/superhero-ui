@@ -18,16 +18,17 @@ export const Table = styled.table`
     padding: 12px;
   }
   tbody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     td {
       padding: 5px;
       text-align: center;
       border-bottom: 1px solid #eee;
     }
   }
-
   strong {
     color: #333;
-    display: block;
   }
   span {
     display: block;

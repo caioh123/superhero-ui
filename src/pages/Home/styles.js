@@ -71,3 +71,43 @@ export const Total = styled.div`
     margin-left: 5px;
   }
 `;
+
+export const Groups = styled.aside`
+  padding: 30px;
+  background: #fff;
+  border-radius: 4px;
+  max-height: 75vh;
+  width: 450px;
+  position: sticky;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  #groups-list {
+    overflow: auto;
+    height: 100%;
+    div {
+      display: flex;
+      justify-content: start;
+    }
+  }
+  footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      background: ${({ theme }) => theme.backgroundColor};
+      color: ${({ theme }) => theme.textColor};
+      border: 0;
+      border-radius: 4px;
+      padding: 12px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+  }
+`;

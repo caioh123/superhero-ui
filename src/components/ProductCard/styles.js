@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../static/styles";
 
 export const ListItem = styled.li`
   display: flex;
@@ -24,6 +25,10 @@ export const ListItem = styled.li`
         color: #333;
         margin-top: 5px;
       }
+      button {
+        background-color: green;
+        margin-top: 8px;
+      }
       > span {
         font-size: 21px;
         font-weight: bold;
@@ -32,19 +37,30 @@ export const ListItem = styled.li`
       }
     }
   }
+
+  .seeProfile {
+    background-color: ${theme.pallete.lightBlue};
+  }
+
+  .addGroup {
+    background-color: ${theme.pallete.lightRed};
+  }
+
   button {
     border: 0;
     border-radius: 4px;
     overflow: hidden;
-    margin-top: auto;
+    margin-top: 16px;
     display: flex;
     align-items: center;
     transition: background 0.2s;
+    width: 100%;
     &:hover {
       filter: brightness(80%);
     }
     div {
       display: flex;
+      background-color: blue;
       align-items: center;
       padding: 12px;
       background: rgba(0, 0, 0, 0.1);

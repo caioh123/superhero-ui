@@ -5,23 +5,13 @@ export const GroupTable = () => {
     <S.Table>
       <thead>
         <tr>
+          <th />
           <th>Nome do grupo</th>
           <th>Quantidade de heróis</th>
           <th />
         </tr>
       </thead>
       <tbody>
-        <tr key="1">
-          <td>
-            <strong>NOME DO GRUPO</strong>
-          </td>
-          <td>
-            <strong>QNT</strong>
-          </td>
-          <td>
-            <strong>ICONE</strong>
-          </td>
-        </tr>
         {/* {cart.map((pokemon) => (
           <tr key={pokemon.id}>
             <td>

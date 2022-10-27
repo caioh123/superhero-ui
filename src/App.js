@@ -4,16 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./static/styles";
 
-import { Home } from "./pages/Home";
+import RoutesComponent from "./routes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Home />;
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <RoutesComponent />;
         <GlobalStyles />
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

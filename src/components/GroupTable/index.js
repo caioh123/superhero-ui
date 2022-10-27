@@ -1,7 +1,21 @@
 import * as S from "./styles";
 import { MdDelete } from "react-icons/md";
 
-const groups = [{ name: "caio", qnt: 1, id: 1 }];
+const groups = [
+  { name: "caio", qnt: 1 },
+  { name: "gabriel", qnt: 2 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+  { name: "elias", qnt: 5 },
+
+  { name: "elias", qnt: 5 },
+];
 
 export const GroupTable = () => {
   return (
@@ -15,7 +29,7 @@ export const GroupTable = () => {
       </thead>
       <tbody>
         {groups.map((group) => (
-          <tr key={group.id}>
+          <tr>
             <td>
               <strong>{group.name}</strong>
             </td>

@@ -1,14 +1,13 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-import { Home } from "./pages/Home";
-import { HeroDetails } from "./pages/HeroDetail";
+import Home from "./pages/Home";
 
-export default function RoutesComponent() {
+export default function Routes() {
   return (
-    <Routes>
-      <Route path="/" exact element={<Home />} />
-      <Route path="/profile/:id" exact element={<HeroDetails />} />
-    </Routes>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      {/* <Route path="/:id" component={Details} /> */}
+    </Switch>
   );
 }

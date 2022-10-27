@@ -48,11 +48,7 @@ export const Home = () => {
       <S.Container>
         <S.ProductList>
           {heroes ? (
-            heroes.map((hero) => (
-              <ProductCard key={hero.id} hero={hero}>
-                outline
-              </ProductCard>
-            ))
+            heroes.map((hero) => <ProductCard hero={hero}>outline</ProductCard>)
           ) : (
             <h1>Busque aqui</h1>
           )}

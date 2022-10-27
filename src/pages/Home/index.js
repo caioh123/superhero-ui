@@ -8,15 +8,10 @@ import { Modal } from "../../components/Modal";
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
+import Button from "../../components/Button";
 
 const styles = {
-  main: {
-    display: "grid",
-    justifyContent: "space-around",
-    alignItems: "center",
-    margin: "20px",
-  },
-  cartTopSection: {
+  groupTopSection: {
     display: "flex",
   },
 };
@@ -25,6 +20,8 @@ export const Home = () => {
   const [heroes, setHeroes] = useState([]);
   const [searchHeroInput, setSearchHeroInput] = useState("");
   const [openModal, setOpenModal] = useState(false);
+
+  const [newGroup, setNewGroup] = useState("");
 
   const handleStatusModal = () => {
     setOpenModal(!openModal);
@@ -53,11 +50,11 @@ export const Home = () => {
           {heroes ? (
             heroes.map((hero) => <ProductCard hero={hero}>outline</ProductCard>)
           ) : (
-            <h1 style={{ background: "red" }}>Busque aqui</h1>
+            <h1>Busque aqui</h1>
           )}
         </S.ProductList>
         <S.Groups>
-          <div style={styles.cartTopSection}>
+          <div style={styles.groupTopSection}>
             <AiOutlineUser size={30} />
             <h2>Grupos</h2>
           </div>
@@ -76,7 +73,15 @@ export const Home = () => {
         isOpen={openModal}
         handleCloseModal={() => !setOpenModal}
       >
-        aqui
+        <S.CreateGroupContainer>
+          <h2>Adicione o nome do seu grupo</h2>
+          <input
+            value={newGroup}
+            placeholder="Digite o nome"
+            onChange={(e) => setNewGroup(e.target.value)}
+          />
+          <Button width="80%">Salvar</Button>
+        </S.CreateGroupContainer>
       </Modal>
     </S.Wrapper>
   );

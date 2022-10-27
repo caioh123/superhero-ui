@@ -111,3 +111,29 @@ export const Groups = styled.aside`
     }
   }
 `;
+
+export const CreateGroupContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  input {
+    height: 64px;
+    width: 100%;
+    margin-top: 16px;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 16px;
+    height: 100%;
+    flex: 1;
+    color: #000;
+
+    &::placeholder {
+      color: #c2c2c2;
+    }
+  }
+
+  button {
+    margin-top: 24px;
+    align-self: center;
+  }
+`;

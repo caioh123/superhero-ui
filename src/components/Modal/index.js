@@ -10,7 +10,9 @@ const modalCustomStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "red",
+  },
+  overlay: {
+    backgroundColor: "rgba(113, 113, 113, 0.5)",
   },
 };
 

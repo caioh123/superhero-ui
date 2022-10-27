@@ -1,4 +1,5 @@
 import ReactModal from "react-modal";
+import PropTypes from "prop-types";
 
 ReactModal.setAppElement("#root");
 
@@ -34,4 +35,11 @@ export const Modal = ({
       {children}
     </ReactModal>
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onRequestClose: PropTypes.func.isRequired,
+  contentLabel: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
 };

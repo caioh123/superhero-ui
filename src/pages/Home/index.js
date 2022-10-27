@@ -7,7 +7,7 @@ import { Modal } from "../../components/Modal";
 
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
-import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import Button from "../../components/Button";
 
 const styles = {
@@ -72,6 +72,7 @@ export const Home = () => {
         onRequestClose={handleStatusModal}
         isOpen={openModal}
         handleCloseModal={() => !setOpenModal}
+        contentLabel="aqui"
       >
         <S.CreateGroupContainer>
           <h2>Adicione o nome do seu grupo</h2>

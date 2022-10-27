@@ -2,19 +2,8 @@ import styled from "styled-components";
 
 export const Table = styled.table`
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  @media (max-width: 495px) {
-    .subtotal {
-      display: none;
-    }
-    img {
-      height: 15vw;
-    }
-  }
   thead th {
     color: #999;
-    text-align: center;
     padding: 12px;
   }
   tbody {
@@ -22,6 +11,7 @@ export const Table = styled.table`
       padding: 5px;
       text-align: center;
       border-bottom: 1px solid #eee;
+      height: 100%;
     }
   }
 
@@ -39,17 +29,9 @@ export const Table = styled.table`
     display: flex;
     align-items: center;
     justify-content: center;
-    input {
-      text-align: center;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      color: #666;
-      padding: 6px;
-      width: 40px;
-    }
-    div {
+    strong {
       display: flex;
-      align-items: center;
+      align-self: center;
     }
   }
   button {

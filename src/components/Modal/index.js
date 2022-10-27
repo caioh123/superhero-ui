@@ -17,20 +17,13 @@ const modalCustomStyles = {
   },
 };
 
-export const Modal = ({
-  children,
-  isOpen,
-  onAfterOpen,
-  onRequestClose,
-  contentLabel,
-}) => {
+export const Modal = ({ children, isOpen, onAfterOpen, onRequestClose }) => {
   return (
     <ReactModal
       isOpen={isOpen}
       onAfterOpen={onAfterOpen}
       onRequestClose={onRequestClose}
       style={modalCustomStyles}
-      contentLabel={contentLabel}
     >
       {children}
     </ReactModal>
@@ -40,6 +33,5 @@ export const Modal = ({
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired,
-  contentLabel: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
 };

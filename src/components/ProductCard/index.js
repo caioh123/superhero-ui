@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
 
 export const ProductCard = ({ hero }) => {
-  console.log(hero);
   return (
     <S.ListItem>
       <Link to={`/profile/${hero.id}`}>

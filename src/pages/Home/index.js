@@ -3,6 +3,8 @@ import { useState } from "react";
 import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
 import API from "../../services/api";
+import { Modal } from "../../components/Modal";
+
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai";
@@ -22,6 +24,11 @@ const styles = {
 export const Home = () => {
   const [heroes, setHeroes] = useState([]);
   const [searchHeroInput, setSearchHeroInput] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleStatusModal = () => {
+    setOpenModal(!openModal);
+  };
 
   useEffect(() => {
     API.get(`/search/${searchHeroInput}`).then((res) => {
@@ -58,10 +65,19 @@ export const Home = () => {
             <GroupTable />
           </div>
           <footer>
-            <button type="button">Criar novos grupos</button>
+            <button type="button" onClick={() => handleStatusModal()}>
+              Criar novos grupos
+            </button>
           </footer>
         </S.Groups>
       </S.Container>
+      <Modal
+        onRequestClose={handleStatusModal}
+        isOpen={openModal}
+        handleCloseModal={() => !setOpenModal}
+      >
+        aqui
+      </Modal>
     </S.Wrapper>
   );
 };

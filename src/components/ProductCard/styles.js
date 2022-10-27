@@ -28,6 +28,7 @@ export const ListItem = styled.li`
       button {
         background-color: green;
         margin-top: 8px;
+        cursor: pointer;
       }
       > span {
         font-size: 21px;

@@ -8,7 +8,7 @@ export default function RoutesComponent() {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
-      <Route path="/:id" exact element={<HeroDetails />} />
+      <Route path="/profile/:id" element={<HeroDetails />} />
     </Routes>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-const TabNavItem = ({ id, title, activeTab, setActiveTab }) => {
+const TabItem = ({ id, title, activeTab, setActiveTab }) => {
   const handleClick = () => {
     setActiveTab(id);
   };
@@ -12,4 +12,4 @@ const TabNavItem = ({ id, title, activeTab, setActiveTab }) => {
     </S.Li>
   );
 };
-export default TabNavItem;
+export default TabItem;

@@ -10,37 +10,31 @@ export const Tabs = () => {
     <S.Tabs className="Tabs">
       <S.Nav className="nav">
         <TabItem
-          title="Tab 1"
+          title="Stats"
           id="tab1"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
         <TabItem
-          title="Tab 2"
+          title="Bibliografia"
           id="tab2"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
         <TabItem
-          title="Tab 3"
+          title="Aparência"
           id="tab3"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
         <TabItem
-          title="Tab 4"
+          title="Trabalhos"
           id="tab4"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
         <TabItem
-          title="Tab 4"
-          id="tab4"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-        <TabItem
-          title="Tab 4"
+          title="Conexões"
           id="tab4"
           activeTab={activeTab}
           setActiveTab={setActiveTab}

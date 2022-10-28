@@ -6,6 +6,7 @@ export const Container = styled.div`
   border-radius: 4px;
   width: 80%;
   margin: 30px auto;
+  height: 100%;
   header {
     display: flex;
     align-items: center;
@@ -20,10 +21,9 @@ export const Container = styled.div`
 
   section {
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 1fr 3fr;
     grid-gap: 2rem;
     margin-top: 2rem;
-
     @media (max-width: 1150px) {
       display: flex;
       justify-content: center;
@@ -46,6 +46,8 @@ export const Container = styled.div`
     }
 
     div {
+      display: flex;
+      flex-direction: column;
       div#title {
         h2 {
           font-size: 36px;

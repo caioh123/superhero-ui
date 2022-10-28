@@ -3,8 +3,14 @@ import * as S from "./styles";
 import TabContent from "./TabContent";
 import TabItem from "./TabItem";
 
-export const Tabs = () => {
+export const Tabs = ({ hero }) => {
   const [activeTab, setActiveTab] = useState("tab1");
+
+  console.log(hero);
+
+  const convertFirstLetterCapitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   return (
     <S.Tabs className="Tabs">
@@ -35,7 +41,7 @@ export const Tabs = () => {
         />
         <TabItem
           title="Conexões"
-          id="tab4"
+          id="tab5"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
@@ -43,16 +49,54 @@ export const Tabs = () => {
 
       <S.ChildrenResult>
         <TabContent id="tab1" activeTab={activeTab}>
-          <p>Tab 1 works!</p>
+          {Object.entries(hero.powerstats).map((attr) => (
+            <S.Attr>
+              <div style={{ flexDirection: "row" }}>
+                <strong>{convertFirstLetterCapitalize(attr[0])}:</strong>
+                <p>{attr[1]}</p>
+              </div>
+            </S.Attr>
+          ))}
         </TabContent>
         <TabContent id="tab2" activeTab={activeTab}>
-          <p>Tab 2 works!</p>
+          {Object.entries(hero.biography).map((attr) => (
+            <S.Attr>
+              <div style={{ flexDirection: "row" }}>
+                <strong>{convertFirstLetterCapitalize(attr[0])}:</strong>
+                <p>{attr[1]}</p>
+              </div>
+            </S.Attr>
+          ))}
         </TabContent>
         <TabContent id="tab3" activeTab={activeTab}>
-          <p>Tab 3 works!</p>
+          {Object.entries(hero.appearance).map((attr) => (
+            <S.Attr>
+              <div style={{ flexDirection: "row" }}>
+                <strong>{convertFirstLetterCapitalize(attr[0])}:</strong>
+                <p>{attr[1]}</p>
+              </div>
+            </S.Attr>
+          ))}
         </TabContent>
         <TabContent id="tab4" activeTab={activeTab}>
-          <p>Tab 34 works!</p>
+          {Object.entries(hero.work).map((attr) => (
+            <S.Attr>
+              <div style={{ flexDirection: "row" }}>
+                <strong>{convertFirstLetterCapitalize(attr[0])}:</strong>
+                <p>{attr[1]}</p>
+              </div>
+            </S.Attr>
+          ))}
+        </TabContent>
+        <TabContent id="tab5" activeTab={activeTab}>
+          {Object.entries(hero.connections).map((attr) => (
+            <S.Attr>
+              <div style={{ flexDirection: "row" }}>
+                <strong>{convertFirstLetterCapitalize(attr[0])}:</strong>
+                <p>{attr[1]}</p>
+              </div>
+            </S.Attr>
+          ))}
         </TabContent>
       </S.ChildrenResult>
     </S.Tabs>

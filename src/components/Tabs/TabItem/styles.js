@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../../static/styles";
 
 export const Li = styled.li`
   width: 50%;
@@ -16,11 +17,8 @@ export const Li = styled.li`
     border-top-right-radius: 2rem;
   }
 
-  &:hover {
-    background: rgba(50, 224, 196, 0.15);
-  }
-
   &.active {
-    background: #39a2db;
+    background: ${theme.pallete.primary};
+    color: white;
   }
 `;

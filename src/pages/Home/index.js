@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -26,38 +26,49 @@ export const Home = () => {
 
   const [groups, setGroups] = useState([]);
 
-  console.log(groups);
-
   const [newGroup, setNewGroup] = useState("");
 
   const handleStatusModal = () => {
     setOpenModal(!openModal);
   };
 
-  useEffect(() => {
+  const getHeroes = useCallback(() => {
     API.get(`/search/${searchHeroInput}`).then((res) => {
       setHeroes(res.data.results);
     });
   }, [searchHeroInput]);
 
   useEffect(() => {
+    getHeroes();
+  }, [searchHeroInput]);
+
+  const getGroups = () => {
     localAPI.get("/grupos").then((res) => {
       setGroups(res.data);
     });
+  };
+
+  useEffect(() => {
+    getGroups();
   }, []);
 
   const createNewGroup = () => {
     const objToSend = {
       id: uuidv4(),
       title: newGroup,
+      members: [],
     };
     localAPI
       .post("/grupos", objToSend)
       .then(() => {
         Swal.fire("Grupo criado com sucesso!");
+        setOpenModal(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        Swal.fire("Houve um erro ao criar seu grupo!");
+      })
+      .finally(() => {
+        getGroups();
       });
   };
 
@@ -76,7 +87,11 @@ export const Home = () => {
       <S.Container>
         <S.ProductList>
           {heroes ? (
-            heroes.map((hero) => <ProductCard hero={hero}>outline</ProductCard>)
+            heroes.map((hero) => (
+              <ProductCard groups={groups} hero={hero}>
+                outline
+              </ProductCard>
+            ))
           ) : (
             <h1>Busque aqui</h1>
           )}
@@ -87,7 +102,7 @@ export const Home = () => {
             <h2>Grupos</h2>
           </div>
           <div id="groups-list">
-            <GroupTable />
+            <GroupTable groups={groups} />
           </div>
           <footer>
             <button type="button" onClick={() => handleStatusModal()}>

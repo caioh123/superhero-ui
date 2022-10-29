@@ -1,17 +1,58 @@
 {
   "grupos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "6c80f6f5-1e75-413e-96eb-adae6688cc41",
-      "title": "a"
-    },
-    {
-      "id": "900d3233-e880-4ebc-882b-4e88076d8080",
-      "title": "ab"
+      "id": "660a1c82-6c7b-4355-91ac-a08b3654328c",
+      "title": "ab",
+      "members": {
+        "id": "2",
+        "name": "Abe Sapien",
+        "powerstats": {
+          "intelligence": "88",
+          "strength": "28",
+          "speed": "35",
+          "durability": "65",
+          "power": "100",
+          "combat": "85"
+        },
+        "biography": {
+          "full-name": "Abraham Sapien",
+          "alter-egos": "No alter egos found.",
+          "aliases": [
+            "Langdon Everett Caul",
+            "Abraham Sapien",
+            "Langdon Caul"
+          ],
+          "place-of-birth": "-",
+          "first-appearance": "Hellboy: Seed of Destruction (1993)",
+          "publisher": "Dark Horse Comics",
+          "alignment": "good"
+        },
+        "appearance": {
+          "gender": "Male",
+          "race": "Icthyo Sapien",
+          "height": [
+            "6'3",
+            "191 cm"
+          ],
+          "weight": [
+            "145 lb",
+            "65 kg"
+          ],
+          "eye-color": "Blue",
+          "hair-color": "No Hair"
+        },
+        "work": {
+          "occupation": "Paranormal Investigator",
+          "base": "-"
+        },
+        "connections": {
+          "group-affiliation": "Bureau for Paranormal Research and Defense",
+          "relatives": "Edith Howard (wife, deceased)"
+        },
+        "image": {
+          "url": "https://www.superherodb.com/pictures2/portraits/10/100/956.jpg"
+        }
+      }
     }
   ]
 }

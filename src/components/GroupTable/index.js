@@ -1,9 +1,8 @@
 import * as S from "./styles";
 import { MdDelete } from "react-icons/md";
 
-const groups = [{ name: "caio", qnt: 1, id: 1 }];
-
-export const GroupTable = () => {
+export const GroupTable = ({ groups }) => {
+  console.log("grupos", groups);
   return (
     <S.Table>
       <thead>
@@ -17,7 +16,7 @@ export const GroupTable = () => {
         {groups.map((group) => (
           <tr key={group.id}>
             <td>
-              <strong>{group.name}</strong>
+              <strong>{group.title}</strong>
             </td>
             <td>
               <div>

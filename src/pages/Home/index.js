@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser } from "react-icons/ai";
 import Button from "../../components/Button";
+import localAPI from "../../services/localApi";
 
 const styles = {
   groupTopSection: {
@@ -21,6 +22,10 @@ export const Home = () => {
   const [searchHeroInput, setSearchHeroInput] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
+  const [groups, setGroups] = useState([]);
+
+  console.log(groups);
+
   const [newGroup, setNewGroup] = useState("");
 
   const handleStatusModal = () => {
@@ -32,6 +37,12 @@ export const Home = () => {
       setHeroes(res.data.results);
     });
   }, [searchHeroInput]);
+
+  useEffect(() => {
+    localAPI.get("/grupos").then((res) => {
+      setGroups(res.data);
+    });
+  }, []);
 
   return (
     <S.Wrapper>

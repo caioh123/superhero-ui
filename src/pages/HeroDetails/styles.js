@@ -7,6 +7,9 @@ export const Container = styled.div`
   width: 80%;
   margin: 30px auto;
   height: 100%;
+  a {
+    text-decoration: none;
+  }
   header {
     display: flex;
     align-items: center;

@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
 import API from "../../services/api";
@@ -52,7 +53,9 @@ export const Home = () => {
     };
     localAPI
       .post("/grupos", objToSend)
-      .then(() => {})
+      .then(() => {
+        Swal.fire("Grupo criado com sucesso!");
+      })
       .catch((error) => {
         console.log(error);
       });

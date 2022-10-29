@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
 import { Tabs } from "../../components/Tabs";
 import API from "../../services/api";
@@ -18,13 +18,16 @@ export const HeroDetails = () => {
     <>
       {hero.name && (
         <S.Container>
-          <header>
-            <AiOutlineRollback size={26} />
-            <span>Voltar</span>
-          </header>
+          <Link to="/">
+            <header>
+              <AiOutlineRollback size={26} />
+              <span>Voltar</span>
+            </header>
+          </Link>
+
           <section>
             <div id="img">
-              <img alt="foto do heroi" src={hero.image.url} />
+              <img alt={hero.name} src={hero.image.url} />
             </div>
             <div>
               <div id="title">

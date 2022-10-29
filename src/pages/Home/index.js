@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
@@ -43,6 +44,19 @@ export const Home = () => {
       setGroups(res.data);
     });
   }, []);
+
+  const createNewGroup = () => {
+    const objToSend = {
+      id: uuidv4(),
+      title: newGroup,
+    };
+    localAPI
+      .post("/grupos", objToSend)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <S.Wrapper>
@@ -92,7 +106,9 @@ export const Home = () => {
             placeholder="Digite o nome"
             onChange={(e) => setNewGroup(e.target.value)}
           />
-          <Button width="80%">Salvar</Button>
+          <Button onClick={createNewGroup} width="80%">
+            Salvar
+          </Button>
         </S.CreateGroupContainer>
       </Modal>
     </S.Wrapper>

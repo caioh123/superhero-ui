@@ -1,5 +1,13 @@
 {
-    "grupos": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ]
-  }
+  "grupos": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "6c80f6f5-1e75-413e-96eb-adae6688cc41",
+      "title": "a"
+    }
+  ]
+}

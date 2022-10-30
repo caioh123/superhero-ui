@@ -6,16 +6,15 @@ import { Modal } from "../Modal";
 import Button from "../Button";
 import Select from "react-select";
 import localAPI from "../../services/localApi";
+import Swal from "sweetalert2";
 
-export const ProductCard = ({ hero, groups }) => {
+export const ProductCard = ({ hero, groups, getGroups }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleSelectGroup = (val) => {
     setSelectedOption(val);
   };
-
-  console.log(selectedOption);
 
   const options = useMemo(() => {
     const groupOptions = groups.map((group) => ({
@@ -26,10 +25,23 @@ export const ProductCard = ({ hero, groups }) => {
     return groupOptions;
   }, [groups]);
 
-  const handleAddHeroToAGroup = () => {
-    localAPI.patch(`/grupos/${selectedOption.value.id}`, {
-      members: hero,
-    });
+  const handleAddHeroToAGroup = (a) => {
+    const members = selectedOption?.value.members;
+
+    localAPI
+      .patch(`/grupos/${selectedOption.value.id}`, {
+        members: [...members, hero],
+      })
+      .then(() => {
+        Swal.fire("ADICIONADO");
+      })
+      .catch(() => {
+        console.log("nao foi possive");
+      })
+      .finally(() => {
+        getGroups();
+      });
+    Swal.fire(" adicionado");
   };
 
   const handleStatusModal = () => {
@@ -73,7 +85,7 @@ export const ProductCard = ({ hero, groups }) => {
             onChange={handleSelectGroup}
             options={options}
           />
-          <Button width="80%" onClick={handleAddHeroToAGroup}>
+          <Button width="80%" onClick={() => handleAddHeroToAGroup(hero)}>
             Salvar
           </Button>
         </S.AddToGroup>

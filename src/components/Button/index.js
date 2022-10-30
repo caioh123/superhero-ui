@@ -70,7 +70,7 @@ Button.propTypes = {
   fWeight: PropTypes.string,
   lHeight: PropTypes.string,
   color: PropTypes.string,
-  onPress: PropTypes.func,
+  onClick: PropTypes.func,
   children: PropTypes.node,
 };
 
@@ -88,6 +88,6 @@ Button.defaultProps = {
   fSize: "18px",
   fWeight: "500",
   lHeight: "22px",
-  onPress: () => {},
+  onClick: () => {},
   children: "",
 };

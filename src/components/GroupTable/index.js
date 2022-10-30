@@ -2,7 +2,6 @@ import * as S from "./styles";
 import { MdDelete } from "react-icons/md";
 
 export const GroupTable = ({ groups }) => {
-  console.log("grupos", groups);
   return (
     <S.Table>
       <thead>

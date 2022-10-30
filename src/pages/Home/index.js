@@ -88,7 +88,7 @@ export const Home = () => {
         <S.ProductList>
           {heroes ? (
             heroes.map((hero) => (
-              <ProductCard groups={groups} hero={hero}>
+              <ProductCard groups={groups} hero={hero} getGroups={getGroups}>
                 outline
               </ProductCard>
             ))

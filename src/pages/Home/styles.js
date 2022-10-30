@@ -23,8 +23,28 @@ export const Wrapper = styled.div`
 export const Filter = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  svg {
+    display: none;
+  }
+
+  button {
+    background-color: transparent;
+    cursor: pointer;
+  }
+  @media (max-width: 955px) {
+    width: 80vw;
+    input {
+      width: 20vw;
+      height: 300px;
+    }
+
+    svg {
+      display: flex;
+      color: white;
+    }
+  }
   input {
     width: 50vw;
     margin-bottom: 20px;
@@ -36,6 +56,7 @@ export const Filter = styled.div`
     height: 40px;
     font-size: 16px;
     transition: all 0.2s ease;
+
     &::placeholder {
       color: #b3b3b3;
     }
@@ -83,6 +104,9 @@ export const Groups = styled.aside`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  @media (max-width: 955px) {
+    display: none;
+  }
   #groups-list {
     overflow: auto;
     height: 100%;

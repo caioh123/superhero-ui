@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import { HiUserGroup } from "react-icons/hi";
 import Swal from "sweetalert2";
 import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
@@ -12,6 +13,7 @@ import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser } from "react-icons/ai";
 import Button from "../../components/Button";
 import localAPI from "../../services/localApi";
+import { Link } from "react-router-dom";
 
 const styles = {
   groupTopSection: {
@@ -83,6 +85,11 @@ export const Home = () => {
           }
           value={searchHeroInput}
         />
+        <button>
+          <Link to="/groups">
+            <HiUserGroup size={48} color="white" />
+          </Link>
+        </button>
       </S.Filter>
       <S.Container>
         <S.ProductList>

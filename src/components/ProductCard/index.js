@@ -8,7 +8,7 @@ import Select from "react-select";
 import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
 
-export const ProductCard = ({ hero, groups, getGroups }) => {
+export const ProductCard = ({ hero, groups }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -38,9 +38,7 @@ export const ProductCard = ({ hero, groups, getGroups }) => {
       .catch(() => {
         console.log("nao foi possive");
       })
-      .finally(() => {
-        getGroups();
-      });
+      .finally(() => {});
     Swal.fire(" adicionado");
   };
 

@@ -1,5 +1,6 @@
 import * as S from "./styles";
 import hero from "../../static/images/hero.jpg";
+import { MdDelete } from "react-icons/md";
 
 export const GroupItem = ({ group }) => {
   return (
@@ -15,6 +16,9 @@ export const GroupItem = ({ group }) => {
             ))}
         </div>
       </section>
+      <button type="button">
+        <MdDelete size={30} />
+      </button>
     </S.Item>
   );
 };

@@ -102,7 +102,7 @@ export const Home = () => {
             <h2>Grupos</h2>
           </div>
           <div id="groups-list">
-            <GroupTable groups={groups} />
+            <GroupTable groups={groups} getGroups={getGroups} />
           </div>
           <footer>
             <button type="button" onClick={() => handleStatusModal()}>

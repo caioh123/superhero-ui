@@ -6,13 +6,20 @@ import hero from "../../static/images/hero.jpg";
 
 import localAPI from "../../services/localApi";
 import { GroupItem } from "../../components/GroupItem";
+import { Modal } from "../../components/Modal";
+import Button from "../../components/Button";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
   const [randomImage, setRandomImage] = useState("");
   const [newGroup, setNewGroup] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
-  console.log(groups);
+  const handleStatusModal = () => {
+    setOpenModal(!openModal);
+  };
+
+  console.log(groups.length);
 
   const createNewGroup = () => {
     const objToSend = {
@@ -28,7 +35,10 @@ export const Groups = () => {
       .catch(() => {
         Swal.fire("Houve um erro ao criar seu grupo!");
       })
-      .finally(() => {});
+      .finally(() => {
+        getGroups();
+        setOpenModal(false);
+      });
   };
 
   const getGroups = () => {
@@ -42,9 +52,32 @@ export const Groups = () => {
   }, []);
   return (
     <S.Container>
-      {groups.map((group) => (
-        <GroupItem group={group} />
-      ))}
+      {groups.length > 0 ? (
+        groups.map((group) => <GroupItem group={group} getGroups={getGroups} />)
+      ) : (
+        <S.ContainerButton>
+          <h2>Ainda não há grupos disponíveis, deseja criar um?</h2>
+          <button onClick={() => handleStatusModal()}>Criar novo grupo</button>
+        </S.ContainerButton>
+      )}
+      <Modal
+        onRequestClose={handleStatusModal}
+        isOpen={openModal}
+        handleCloseModal={() => !setOpenModal}
+        contentLabel="aqui"
+      >
+        <S.CreateGroupContainer>
+          <h2>Adicione o nome do seu grupo</h2>
+          <input
+            value={newGroup}
+            placeholder="Digite o nome"
+            onChange={(e) => setNewGroup(e.target.value)}
+          />
+          <Button onClick={createNewGroup} width="80%">
+            Salvar
+          </Button>
+        </S.CreateGroupContainer>
+      </Modal>
     </S.Container>
   );
 };

@@ -24,15 +24,10 @@ const styles = {
 export const Home = () => {
   const [heroes, setHeroes] = useState([]);
   const [searchHeroInput, setSearchHeroInput] = useState("");
-  const [openModal, setOpenModal] = useState(false);
 
   const [groups, setGroups] = useState([]);
 
   const [newGroup, setNewGroup] = useState("");
-
-  const handleStatusModal = () => {
-    setOpenModal(!openModal);
-  };
 
   const getHeroes = useCallback(() => {
     API.get(`/search/${searchHeroInput}`).then((res) => {
@@ -64,7 +59,6 @@ export const Home = () => {
       .post("/grupos", objToSend)
       .then(() => {
         Swal.fire("Grupo criado com sucesso!");
-        setOpenModal(false);
       })
       .catch(() => {
         Swal.fire("Houve um erro ao criar seu grupo!");
@@ -112,30 +106,12 @@ export const Home = () => {
             <GroupTable groups={groups} getGroups={getGroups} />
           </div>
           <footer>
-            <button type="button" onClick={() => handleStatusModal()}>
-              Criar novos grupos
-            </button>
+            <Link to="/groups">
+              <button type="button">Criar novos grupos</button>
+            </Link>
           </footer>
         </S.Groups>
       </S.Container>
-      <Modal
-        onRequestClose={handleStatusModal}
-        isOpen={openModal}
-        handleCloseModal={() => !setOpenModal}
-        contentLabel="aqui"
-      >
-        <S.CreateGroupContainer>
-          <h2>Adicione o nome do seu grupo</h2>
-          <input
-            value={newGroup}
-            placeholder="Digite o nome"
-            onChange={(e) => setNewGroup(e.target.value)}
-          />
-          <Button onClick={createNewGroup} width="80%">
-            Salvar
-          </Button>
-        </S.CreateGroupContainer>
-      </Modal>
     </S.Wrapper>
   );
 };

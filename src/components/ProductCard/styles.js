@@ -16,6 +16,10 @@ export const ListItem = styled.li`
     display: flex;
     flex-direction: column;
 
+    button {
+      background-color: green;
+    }
+
     img {
       align-self: center;
       width: 150px;
@@ -28,7 +32,6 @@ export const ListItem = styled.li`
       margin-top: 5px;
     }
     button {
-      background-color: green;
       margin-top: 8px;
       cursor: pointer;
     }
@@ -55,8 +58,7 @@ export const ListItem = styled.li`
   button {
     border: 0;
     border-radius: 4px;
-    overflow: hidden;
-    margin-top: 16px;
+    margin-top: 8px;
     display: flex;
     align-items: center;
     transition: background 0.2s;
@@ -71,7 +73,7 @@ export const ListItem = styled.li`
       padding: 12px;
       background: rgba(0, 0, 0, 0.1);
       svg {
-        margin-right: 5px;
+        margin-right: 12px;
       }
     }
     span {
@@ -101,10 +103,5 @@ export const AddToGroup = styled.div`
     &::placeholder {
       color: #c2c2c2;
     }
-  }
-
-  button {
-    margin-top: 24px;
-    align-self: center;
   }
 `;

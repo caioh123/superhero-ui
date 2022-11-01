@@ -78,6 +78,11 @@ export const ProductList = styled.ul`
   @media (max-width: 955px) {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  h3 {
+    font-size: 24px;
+    color: white;
+  }
 `;
 
 export const Total = styled.div`

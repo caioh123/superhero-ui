@@ -89,12 +89,10 @@ export const Home = () => {
         <S.ProductList>
           {heroes ? (
             heroes.map((hero) => (
-              <ProductCard groups={groups} hero={hero} getGroups={getGroups}>
-                outline
-              </ProductCard>
+              <ProductCard groups={groups} hero={hero} getGroups={getGroups} />
             ))
           ) : (
-            <h1>Busque aqui</h1>
+            <h3>Inicie a busca pelo herói aqui!</h3>
           )}
         </S.ProductList>
         <S.Groups>

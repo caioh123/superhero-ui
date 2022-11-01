@@ -1,9 +1,10 @@
 import * as S from "./styles";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import localAPI from "../../services/localApi";
 import { ProductCard } from "../../components/ProductCard";
 import Swal from "sweetalert2";
+import { HiUserGroup } from "react-icons/hi";
 
 export const Group = () => {
   const { id } = useParams();
@@ -30,20 +31,32 @@ export const Group = () => {
     getGroupHeroDetails();
   }, [id, setGroupDetails]);
   return (
-    <S.Container>
-      <S.ProductList>
-        {groupDetails.members &&
-          groupDetails.members.map((hero) => (
-            <ProductCard
-              deleteHero
-              handleDeleteHero={handleDeleteHero}
-              hero={hero}
-              getGroupHeroDetails={getGroupHeroDetails}
-            >
-              outline
-            </ProductCard>
-          ))}
-      </S.ProductList>
-    </S.Container>
+    <S.Wrapper>
+      <S.Filter>
+        <button>
+          <Link to="/groups">
+            <HiUserGroup size={48} color="white" />
+          </Link>
+        </button>
+        <Link to={"/"}>
+          <span>Voltar</span>
+        </Link>
+      </S.Filter>
+      <S.Container>
+        <S.ProductList>
+          {groupDetails.members &&
+            groupDetails.members.map((hero) => (
+              <ProductCard
+                deleteHero
+                handleDeleteHero={handleDeleteHero}
+                hero={hero}
+                getGroupHeroDetails={getGroupHeroDetails}
+              >
+                outline
+              </ProductCard>
+            ))}
+        </S.ProductList>
+      </S.Container>
+    </S.Wrapper>
   );
 };

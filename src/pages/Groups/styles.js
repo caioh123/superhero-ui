@@ -7,7 +7,28 @@ export const Container = styled.div`
   width: 50%;
   margin: 30px auto;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 
+  a {
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      svg {
+        color: black;
+      }
+      span {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+  button {
+    font-size: 28px;
+  }
   @media (max-width: 955px) {
     width: 90%;
     padding: 12px;

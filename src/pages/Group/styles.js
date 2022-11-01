@@ -5,6 +5,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   height: 100%;
+
   @media (max-width: 750px) {
     grid-template-columns: 1fr;
   }
@@ -15,6 +16,11 @@ export const ProductList = styled.ul`
   grid-gap: 20px;
   list-style: none;
   margin-top: 36px;
+
+  strong {
+    color: white;
+    font-size: 24px;
+  }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
     height: 100%;
@@ -29,7 +35,7 @@ export const ProductList = styled.ul`
 export const Filter = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   a {
     height: 100%;

@@ -126,8 +126,6 @@ export const Groups = styled.aside`
     justify-content: center;
     align-items: center;
     button {
-      background: ${({ theme }) => theme.backgroundColor};
-      color: ${({ theme }) => theme.textColor};
       border: 0;
       border-radius: 4px;
       padding: 12px 20px;

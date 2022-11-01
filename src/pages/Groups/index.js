@@ -3,11 +3,14 @@ import * as S from "./styles";
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 import hero from "../../static/images/hero.jpg";
+import { AiOutlineRollback } from "react-icons/ai";
 
 import localAPI from "../../services/localApi";
 import { GroupItem } from "../../components/GroupItem";
 import { Modal } from "../../components/Modal";
 import Button from "../../components/Button";
+import theme from "../../static/styles";
+import { Link } from "react-router-dom";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -18,8 +21,6 @@ export const Groups = () => {
   const handleStatusModal = () => {
     setOpenModal(!openModal);
   };
-
-  console.log(groups.length);
 
   const createNewGroup = () => {
     const objToSend = {
@@ -52,14 +53,26 @@ export const Groups = () => {
   }, []);
   return (
     <S.Container>
+      <Link to="/">
+        <header>
+          <AiOutlineRollback size={26} />
+          <span>Voltar</span>
+        </header>
+      </Link>
       {groups.length > 0 ? (
-        groups.map((group) => <GroupItem group={group} getGroups={getGroups} />)
+        groups.map((group) => (
+          <>
+            <GroupItem group={group} getGroups={getGroups} />
+          </>
+        ))
       ) : (
         <S.ContainerButton>
           <h2>Ainda não há grupos disponíveis, deseja criar um?</h2>
-          <button onClick={() => handleStatusModal()}>Criar novo grupo</button>
         </S.ContainerButton>
       )}
+      <Button borderRadius="8px" onClick={() => handleStatusModal()}>
+        Criar novo grupo
+      </Button>
       <Modal
         onRequestClose={handleStatusModal}
         isOpen={openModal}

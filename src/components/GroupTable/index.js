@@ -34,7 +34,7 @@ export const GroupTable = ({ groups, getGroups }) => {
             </td>
             <td>
               <div>
-                <strong>{group.qnt}</strong>
+                <strong>{group.members.length}</strong>
               </div>
             </td>
             <td>

@@ -12,6 +12,10 @@ export const Table = styled.table`
       text-align: center;
       border-bottom: 1px solid #eee;
       height: 100%;
+
+      strong {
+        margin-left: 16px;
+      }
     }
   }
 

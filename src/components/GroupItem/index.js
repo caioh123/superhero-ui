@@ -1,4 +1,5 @@
 import * as S from "./styles";
+import { Link } from "react-router-dom";
 import hero from "../../static/images/hero.jpg";
 import { MdDelete } from "react-icons/md";
 import localAPI from "../../services/localApi";
@@ -7,6 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export const GroupItem = ({ group, getGroups }) => {
+  console.log("group completo", group);
   const handleDeleteGroup = () => {
     localAPI
       .delete(`/grupos/${group.id}`)
@@ -25,7 +27,9 @@ export const GroupItem = ({ group, getGroups }) => {
     <S.Item>
       <img src={hero} alt="herói" />
       <section>
-        <h2>{group.title}</h2>
+        <Link to={`/groups/${group.id}`}>
+          <h2>{group.title}</h2>
+        </Link>
         <p>{group.members.length} membros</p>
         <div>
           {group &&

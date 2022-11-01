@@ -11,36 +11,41 @@ export const ListItem = styled.li`
   a {
     text-decoration: none;
     color: #000;
-    div {
-      display: flex;
-      flex-direction: column;
-      img {
-        align-self: center;
-        width: 150px;
-        max-height: 150px;
-      }
-      > strong {
-        font-size: 16px;
-        line-height: 20px;
-        color: #333;
-        margin-top: 5px;
-      }
-      button {
-        background-color: green;
-        margin-top: 8px;
-        cursor: pointer;
-      }
-      > span {
-        font-size: 21px;
-        font-weight: bold;
-        margin: 5px 0 20px;
-        text-decoration: none;
-      }
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      align-self: center;
+      width: 150px;
+      max-height: 150px;
+    }
+    > strong {
+      font-size: 16px;
+      line-height: 20px;
+      color: #333;
+      margin-top: 5px;
+    }
+    button {
+      background-color: green;
+      margin-top: 8px;
+      cursor: pointer;
+    }
+    > span {
+      font-size: 21px;
+      font-weight: bold;
+      margin: 5px 0 20px;
+      text-decoration: none;
     }
   }
 
   .seeProfile {
     background-color: ${theme.pallete.lightBlue};
+  }
+
+  .deleteHero {
+    background-color: ${theme.pallete.lightRed};
   }
 
   .addGroup {

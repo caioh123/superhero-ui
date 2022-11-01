@@ -22,10 +22,11 @@ export const Group = () => {
       });
   };
 
+  const getGroupHeroDetails = () => {
+    localAPI.get(`grupos/${id}`).then((hero) => setGroupDetails(hero.data));
+  };
+
   useEffect(() => {
-    const getGroupHeroDetails = () => {
-      localAPI.get(`grupos/${id}`).then((hero) => setGroupDetails(hero.data));
-    };
     getGroupHeroDetails();
   }, [id, setGroupDetails]);
   return (
@@ -37,6 +38,7 @@ export const Group = () => {
               deleteHero
               handleDeleteHero={handleDeleteHero}
               hero={hero}
+              getGroupHeroDetails={getGroupHeroDetails}
             >
               outline
             </ProductCard>

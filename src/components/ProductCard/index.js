@@ -9,7 +9,14 @@ import Select from "react-select";
 import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
 
-export const ProductCard = ({ hero, groups, deleteHero, handleDeleteHero }) => {
+export const ProductCard = ({
+  hero,
+  groups,
+  deleteHero,
+  handleDeleteHero,
+  getGroupHeroDetails,
+  getGroups,
+}) => {
   console.log("isso é hero", hero);
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -37,7 +44,6 @@ export const ProductCard = ({ hero, groups, deleteHero, handleDeleteHero }) => {
   const handleAddHeroToAGroup = (a) => {
     localAPI
       .put(`/grupos/${selectedOption.value.id}`, {
-        id: selectedOption.value.id,
         title: selectedOption.value.title,
         members: [...members, hero],
       })
@@ -47,7 +53,9 @@ export const ProductCard = ({ hero, groups, deleteHero, handleDeleteHero }) => {
       .catch(() => {
         console.log("nao foi possive");
       })
-      .finally(() => {});
+      .finally(() => {
+        getGroups();
+      });
     Swal.fire(" adicionado");
   };
 

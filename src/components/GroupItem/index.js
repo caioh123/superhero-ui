@@ -4,11 +4,8 @@ import hero from "../../static/images/hero.jpg";
 import { MdDelete } from "react-icons/md";
 import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export const GroupItem = ({ group, getGroups }) => {
-  console.log("group completo", group);
   const handleDeleteGroup = () => {
     localAPI
       .delete(`/grupos/${group.id}`)

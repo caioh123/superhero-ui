@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
 import * as S from "./styles";
 import { Link } from "react-router-dom";
 import { AiOutlineUser, AiOutlineUserAdd, AiFillDelete } from "react-icons/ai";
@@ -14,14 +13,10 @@ export const ProductCard = ({
   groups,
   deleteHero,
   handleDeleteHero,
-  getGroupHeroDetails,
   getGroups,
 }) => {
-  console.log("isso é hero", hero);
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
-
-  const { id } = useParams();
 
   const handleSelectGroup = (val) => {
     setSelectedOption(val);
@@ -50,13 +45,13 @@ export const ProductCard = ({
       .then(() => {
         Swal.fire("ADICIONADO");
       })
-      .catch(() => {
-        console.log("nao foi possive");
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => {
         getGroups();
       });
-    Swal.fire(" adicionado");
+    Swal.fire("adicionado");
   };
 
   const handleStatusModal = () => {

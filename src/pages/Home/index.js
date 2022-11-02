@@ -27,8 +27,6 @@ export const Home = () => {
 
   const [groups, setGroups] = useState([]);
 
-  const [newGroup, setNewGroup] = useState("");
-
   const getHeroes = useCallback(() => {
     API.get(`/search/${searchHeroInput}`).then((res) => {
       setHeroes(res.data.results);
@@ -37,7 +35,7 @@ export const Home = () => {
 
   useEffect(() => {
     getHeroes();
-  }, [searchHeroInput]);
+  }, [getHeroes, searchHeroInput]);
 
   const getGroups = () => {
     localAPI.get("/grupos").then((res) => {
@@ -48,25 +46,6 @@ export const Home = () => {
   useEffect(() => {
     getGroups();
   }, []);
-
-  const createNewGroup = () => {
-    const objToSend = {
-      id: uuidv4(),
-      title: newGroup,
-      members: [],
-    };
-    localAPI
-      .post("/grupos", objToSend)
-      .then(() => {
-        Swal.fire("Grupo criado com sucesso!");
-      })
-      .catch(() => {
-        Swal.fire("Houve um erro ao criar seu grupo!");
-      })
-      .finally(() => {
-        getGroups();
-      });
-  };
 
   return (
     <S.Wrapper>

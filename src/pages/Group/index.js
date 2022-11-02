@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import localAPI from "../../services/localApi";
 import { ProductCard } from "../../components/ProductCard";
 import Swal from "sweetalert2";
@@ -10,8 +10,6 @@ export const Group = () => {
   const { id } = useParams();
 
   const [groupDetails, setGroupDetails] = useState({});
-
-  console.log("g do grupo", groupDetails);
 
   const handleDeleteHero = (heroId) => {
     const members = groupDetails?.members?.filter((hero) => hero.id !== heroId);
@@ -23,13 +21,13 @@ export const Group = () => {
       });
   };
 
-  const getGroupHeroDetails = () => {
+  const getGroupHeroDetails = useCallback(() => {
     localAPI.get(`grupos/${id}`).then((hero) => setGroupDetails(hero.data));
-  };
+  }, [id]);
 
   useEffect(() => {
     getGroupHeroDetails();
-  }, [id, setGroupDetails]);
+  }, [getGroupHeroDetails, id, setGroupDetails]);
   return (
     <S.Wrapper>
       <S.Filter>

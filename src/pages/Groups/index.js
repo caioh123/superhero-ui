@@ -2,19 +2,16 @@ import { useEffect, useState } from "react";
 import * as S from "./styles";
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
-import hero from "../../static/images/hero.jpg";
 import { AiOutlineRollback } from "react-icons/ai";
 
 import localAPI from "../../services/localApi";
 import { GroupItem } from "../../components/GroupItem";
 import { Modal } from "../../components/Modal";
 import Button from "../../components/Button";
-import theme from "../../static/styles";
 import { Link } from "react-router-dom";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
-  const [randomImage, setRandomImage] = useState("");
   const [newGroup, setNewGroup] = useState("");
   const [openModal, setOpenModal] = useState(false);
 

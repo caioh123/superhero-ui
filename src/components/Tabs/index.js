@@ -6,8 +6,6 @@ import TabItem from "./TabItem";
 export const Tabs = ({ hero }) => {
   const [activeTab, setActiveTab] = useState("tab1");
 
-  console.log(hero);
-
   const convertFirstLetterCapitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };

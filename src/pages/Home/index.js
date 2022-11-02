@@ -72,7 +72,13 @@ export const Home = () => {
               />
             ))
           ) : (
-            <h3>Inicie a busca pelo herói aqui!</h3>
+            <>
+              {searchHeroInput.length > 1 ? (
+                <h3>Não foi encontrado nenhum herói com esse nome.</h3>
+              ) : (
+                <h3>Inicie a busca pelo herói aqui!</h3>
+              )}
+            </>
           )}
         </S.ProductList>
         <S.Groups>

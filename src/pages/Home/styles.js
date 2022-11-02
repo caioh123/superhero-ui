@@ -24,6 +24,7 @@ export const Filter = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   svg {
     display: none;
@@ -47,11 +48,9 @@ export const Filter = styled.div`
   }
   input {
     width: 50vw;
-    margin-bottom: 20px;
     padding-left: 35px;
     color: grey;
     box-shadow: 2px 3px 28px 1px rgba(0, 0, 0, 0.1);
-    border: 0px solid transparent;
     border-radius: 5px;
     height: 40px;
     font-size: 16px;

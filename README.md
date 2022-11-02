@@ -4,6 +4,11 @@
 
 <h3><i>SuperHero UI</i></h3>
 
+<h3><i>Home</i></h3>
+<img alt="Home screen" src="https://github.com/caioh123/superhero-ui/blob/main/public/images/home.png?raw=true">
+
+<h3><i>Hero Detail</i></h3>
+<img alt="hero detail" src="https://github.com/caioh123/superhero-ui/blob/main/public/images/profile.png?raw=true">
 
 ## 📡 Tecnologias
 

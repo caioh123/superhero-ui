@@ -20,6 +20,6 @@ export const Li = styled.li`
   &.active {
     background: ${theme.pallete.primary};
     color: white;
-    background: purple;
+    background: black;
   }
 `;

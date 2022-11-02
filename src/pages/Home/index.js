@@ -7,7 +7,6 @@ import * as S from "./styles";
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser } from "react-icons/ai";
-import localAPI from "../../services/localApi";
 import { Link } from "react-router-dom";
 import { getHeroes } from "../../services/heroes.service";
 import { getGroups } from "../../services/groups.service";

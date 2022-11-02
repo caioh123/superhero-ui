@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 import { AiOutlineRollback } from "react-icons/ai";
 
-import localAPI from "../../services/localApi";
 import { GroupItem } from "../../components/GroupItem";
 import { Modal } from "../../components/Modal";
 import Button from "../../components/Button";

@@ -1,7 +1,6 @@
 import * as S from "./styles";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import localAPI from "../../services/localApi";
 import { ProductCard } from "../../components/ProductCard";
 import Swal from "sweetalert2";
 import { HiUserGroup } from "react-icons/hi";

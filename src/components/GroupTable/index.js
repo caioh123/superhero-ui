@@ -1,14 +1,13 @@
 import * as S from "./styles";
 import { MdDelete } from "react-icons/md";
-import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { deleteGroup } from "../../services/groups.service";
 
 export const GroupTable = ({ groups, getGroupsFunc }) => {
   console.log(groups);
   const handleDeleteGroup = (id) => {
-    localAPI
-      .delete(`/grupos/${id}`)
+    deleteGroup(id)
       .then(() => {
         Swal.fire("Grupo deletado com sucesso");
       })

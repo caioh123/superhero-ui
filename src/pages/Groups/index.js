@@ -20,6 +20,10 @@ export const Groups = () => {
   };
 
   const createNewGroup = () => {
+    if (newGroup.length === 0) {
+      return Swal.fire("Por favor, adicione um nome");
+    }
+
     const objToSend = {
       id: uuidv4(),
       title: newGroup,

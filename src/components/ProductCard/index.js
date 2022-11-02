@@ -36,7 +36,7 @@ export const ProductCard = ({
   }, [groups]);
 
   const members = selectedOption?.value.members;
-  const handleAddHeroToAGroup = (a) => {
+  const handleAddHeroToAGroup = () => {
     localAPI
       .put(`/grupos/${selectedOption.value.id}`, {
         title: selectedOption.value.title,

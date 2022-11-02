@@ -2,6 +2,7 @@ import * as S from "./styles";
 import { MdDelete } from "react-icons/md";
 import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export const GroupTable = ({ groups, getGroups }) => {
   const handleDeleteGroup = (id) => {
@@ -30,7 +31,9 @@ export const GroupTable = ({ groups, getGroups }) => {
         {groups.map((group) => (
           <tr key={group.id}>
             <td>
-              <strong>{group.title}</strong>
+              <Link to={`/groups/${group.id}`}>
+                <strong>{group.title}</strong>
+              </Link>
             </td>
             <td>
               <div>

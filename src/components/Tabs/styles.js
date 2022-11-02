@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const Tabs = styled.div`
-  height: 100%;
   min-height: 400px;
   padding: 2rem 1rem;
   color: black;
   border-radius: 2rem;
-
   @media (max-width: 769px) {
     padding: 2rem 0;
   }
@@ -21,6 +19,7 @@ export const Nav = styled.ul`
   border: 1px solid black;
   border-radius: 2rem;
   padding-left: 0px;
+
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: 1fr 1fr;

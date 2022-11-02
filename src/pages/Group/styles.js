@@ -1,12 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  align-items: center;
+  grid-gap: 20px;
+  flex-flow: row;
   height: 100%;
+  width: 60%;
+  margin-top: 20px;
 
-  @media (max-width: 750px) {
+  div {
+    strong {
+      color: white;
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -15,20 +29,16 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
-  margin-top: 36px;
-
-  strong {
-    color: white;
-    font-size: 24px;
-  }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
-    height: 100%;
   }
   @media (max-width: 955px) {
     grid-template-columns: repeat(1, 1fr);
-    overflow: auto;
-    height: 100%;
+  }
+
+  h3 {
+    font-size: 24px;
+    color: white;
   }
 `;
 
@@ -64,8 +74,9 @@ export const Filter = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  display: grid;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 20px;
+  flex-direction: column;
 `;

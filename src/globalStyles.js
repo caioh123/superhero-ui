@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
     outline: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: "Montserrat";
+    
   }
 
   body{ 

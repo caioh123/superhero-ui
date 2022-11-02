@@ -7,7 +7,7 @@ export const ListItem = styled.li`
   background: #fff;
   border-radius: 4px;
   padding: 20px;
-  max-height: 305px;
+  width: 300px;
   a {
     text-decoration: none;
     color: #000;
@@ -15,10 +15,6 @@ export const ListItem = styled.li`
   div {
     display: flex;
     flex-direction: column;
-
-    button {
-      background-color: green;
-    }
 
     img {
       align-self: center;
@@ -30,6 +26,8 @@ export const ListItem = styled.li`
       line-height: 20px;
       color: #333;
       margin-top: 5px;
+      font-family: "Montserrat";
+      font-weight: 700;
     }
     button {
       margin-top: 8px;

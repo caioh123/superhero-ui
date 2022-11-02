@@ -2,7 +2,7 @@ import styled from "styled-components";
 import theme from "../../../static/styles";
 
 export const Li = styled.li`
-  width: 50%;
+  width: 100%;
   padding: 1rem;
   list-style: none;
   text-align: center;
@@ -20,5 +20,6 @@ export const Li = styled.li`
   &.active {
     background: ${theme.pallete.primary};
     color: white;
+    background: purple;
   }
 `;

@@ -43,22 +43,24 @@ export const Group = () => {
         </Link>
       </S.Filter>
       <S.Container>
-        <S.ProductList>
-          {groupDetails?.members?.length > 0 ? (
-            groupDetails.members.map((hero) => (
+        {groupDetails?.members?.length > 0 ? (
+          groupDetails.members.map((hero) => (
+            <S.ProductList>
               <ProductCard
                 deleteHero
                 handleDeleteHero={handleDeleteHero}
                 hero={hero}
                 getGroupHeroDetails={getGroupHeroDetails}
               />
-            ))
-          ) : (
+            </S.ProductList>
+          ))
+        ) : (
+          <div>
             <strong>
               Ainda não há heróis escolhidos no grupo {groupDetails.title}
             </strong>
-          )}
-        </S.ProductList>
+          </div>
+        )}
       </S.Container>
     </S.Wrapper>
   );

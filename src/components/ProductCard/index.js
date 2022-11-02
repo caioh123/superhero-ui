@@ -71,7 +71,7 @@ export const ProductCard = ({
             <div>
               <AiOutlineUser size={16} />
             </div>
-            <span>Ver perfil</span>
+            <span>Ver detalhes</span>
           </button>
         </Link>
 
@@ -95,7 +95,7 @@ export const ProductCard = ({
               <AiOutlineUserAdd size={16} />
             </div>
 
-            <span>Adicionar grupo</span>
+            <span>Adicionar a um grupo</span>
           </button>
 
           <Modal
@@ -107,6 +107,7 @@ export const ProductCard = ({
             <S.AddToGroup>
               <h2>Selecione o grupo </h2>
               <Select
+                className="select"
                 defaultValue={selectedOption}
                 onChange={handleSelectGroup}
                 options={options}

@@ -22,8 +22,9 @@ export const Item = styled.div`
     width: 100%;
 
     h2 {
-      color: blue;
+      color: black;
       font-size: 36px;
+      text-decoration: none;
       @media (max-width: 955px) {
         font-size: 24px;
       }

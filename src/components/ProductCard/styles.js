@@ -87,19 +87,12 @@ export const AddToGroup = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  input {
-    height: 64px;
-    width: 100%;
-    margin-top: 16px;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 16px;
-    height: 100%;
-    flex: 1;
-    color: #000;
+  align-items: center;
 
-    &::placeholder {
-      color: #c2c2c2;
-    }
+  .select {
+    width: 100%;
+  }
+  h2 {
+    margin-bottom: 16px;
   }
 `;

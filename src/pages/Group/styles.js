@@ -12,8 +12,9 @@ export const Container = styled.section`
 
   div {
     strong {
-      color: white;
       font-size: 24px;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
   }
 

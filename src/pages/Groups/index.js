@@ -67,7 +67,11 @@ export const Groups = () => {
           <h2>Ainda não há grupos disponíveis, deseja criar um?</h2>
         </S.ContainerButton>
       )}
-      <Button borderRadius="8px" onClick={() => handleStatusModal()}>
+      <Button
+        width="30%"
+        borderRadius="8px"
+        onClick={() => handleStatusModal()}
+      >
         Criar novo grupo
       </Button>
       <Modal

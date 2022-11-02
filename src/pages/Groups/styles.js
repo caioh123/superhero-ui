@@ -10,13 +10,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
 
   a {
     header {
       display: flex;
       align-items: center;
       margin-bottom: 8px;
+      justify-content: flex-start;
       svg {
         color: black;
       }
@@ -39,22 +39,7 @@ export const ContainerButton = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  button {
-    padding: 30px;
-    background: #fff;
-    border-radius: 4px;
-    max-height: 75vh;
-    top: 20px;
-    width: 30%;
-    border-radius: 4px;
-    padding: 12px 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: filter 0.3s;
-    &:hover {
-      filter: brightness(80%);
-    }
-  }
+  justify-content: center;
 `;
 
 export const CreateGroupContainer = styled.div`

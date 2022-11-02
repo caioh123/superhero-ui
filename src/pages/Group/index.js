@@ -5,6 +5,7 @@ import localAPI from "../../services/localApi";
 import { ProductCard } from "../../components/ProductCard";
 import Swal from "sweetalert2";
 import { HiUserGroup } from "react-icons/hi";
+import { getSingleGroup, updateGroup } from "../../services/groups.service";
 
 export const Group = () => {
   const { id } = useParams();
@@ -13,16 +14,16 @@ export const Group = () => {
 
   const handleDeleteHero = (heroId) => {
     const members = groupDetails?.members?.filter((hero) => hero.id !== heroId);
-    localAPI
-      .put(`/grupos/${id}`, { ...groupDetails, members })
-      .then((result) => {
-        setGroupDetails(result.data);
-        Swal.fire("heroi deletado com sucesso");
-      });
+    const objToSend = { ...groupDetails, members };
+
+    updateGroup(id, objToSend).then((result) => {
+      setGroupDetails(result.data);
+      Swal.fire("heroi deletado com sucesso");
+    });
   };
 
   const getGroupHeroDetails = useCallback(() => {
-    localAPI.get(`grupos/${id}`).then((hero) => setGroupDetails(hero.data));
+    getSingleGroup(id).then((hero) => setGroupDetails(hero.data));
   }, [id]);
 
   useEffect(() => {

@@ -1,19 +1,16 @@
 import React, { useCallback } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { HiUserGroup } from "react-icons/hi";
-import Swal from "sweetalert2";
 import { GroupTable } from "../../components/GroupTable";
 import * as S from "./styles";
-import API from "../../services/api";
-import { Modal } from "../../components/Modal";
 
 import { useEffect } from "react";
 import { ProductCard } from "../../components/ProductCard";
 import { AiOutlineUser } from "react-icons/ai";
-import Button from "../../components/Button";
 import localAPI from "../../services/localApi";
 import { Link } from "react-router-dom";
+import { getHeroes } from "../../services/heroes.service";
+import { getGroups } from "../../services/groups.service";
 
 const styles = {
   groupTopSection: {
@@ -27,24 +24,24 @@ export const Home = () => {
 
   const [groups, setGroups] = useState([]);
 
-  const getHeroes = useCallback(() => {
-    API.get(`/search/${searchHeroInput}`).then((res) => {
+  const getHeroesFunc = useCallback(() => {
+    getHeroes(searchHeroInput).then((res) => {
       setHeroes(res.data.results);
     });
   }, [searchHeroInput]);
 
   useEffect(() => {
-    getHeroes();
-  }, [getHeroes, searchHeroInput]);
+    getHeroesFunc();
+  }, [getHeroesFunc, searchHeroInput]);
 
-  const getGroups = () => {
-    localAPI.get("/grupos").then((res) => {
+  const getGroupsFunc = () => {
+    getGroups().then((res) => {
       setGroups(res.data);
     });
   };
 
   useEffect(() => {
-    getGroups();
+    getGroupsFunc();
   }, []);
 
   return (
@@ -68,7 +65,11 @@ export const Home = () => {
         <S.ProductList>
           {heroes ? (
             heroes.map((hero) => (
-              <ProductCard groups={groups} hero={hero} getGroups={getGroups} />
+              <ProductCard
+                groups={groups}
+                hero={hero}
+                getGroupsFunc={getGroupsFunc}
+              />
             ))
           ) : (
             <h3>Inicie a busca pelo herói aqui!</h3>
@@ -80,7 +81,7 @@ export const Home = () => {
             <h2>Grupos</h2>
           </div>
           <div id="groups-list">
-            <GroupTable groups={groups} getGroups={getGroups} />
+            <GroupTable groups={groups} getGroupsFunc={getGroupsFunc} />
           </div>
           <footer>
             <Link to="/groups">

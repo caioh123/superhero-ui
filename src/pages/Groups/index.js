@@ -9,6 +9,7 @@ import { GroupItem } from "../../components/GroupItem";
 import { Modal } from "../../components/Modal";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { createNewGroup, getGroups } from "../../services/groups.service";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -19,7 +20,7 @@ export const Groups = () => {
     setOpenModal(!openModal);
   };
 
-  const createNewGroup = () => {
+  const createNewGroupFunc = () => {
     if (newGroup.length === 0) {
       return Swal.fire("Por favor, adicione um nome");
     }
@@ -29,8 +30,7 @@ export const Groups = () => {
       title: newGroup,
       members: [],
     };
-    localAPI
-      .post("/grupos", objToSend)
+    createNewGroup(objToSend)
       .then(() => {
         Swal.fire("Grupo criado com sucesso!");
       })
@@ -38,19 +38,19 @@ export const Groups = () => {
         Swal.fire("Houve um erro ao criar seu grupo!");
       })
       .finally(() => {
-        getGroups();
+        getGroupsFunc();
         setOpenModal(false);
       });
   };
 
-  const getGroups = () => {
-    localAPI.get("/grupos").then((res) => {
+  const getGroupsFunc = () => {
+    getGroups().then((res) => {
       setGroups(res.data);
     });
   };
 
   useEffect(() => {
-    getGroups();
+    getGroupsFunc();
   }, []);
   return (
     <S.Container>
@@ -63,7 +63,7 @@ export const Groups = () => {
       {groups.length > 0 ? (
         groups.map((group) => (
           <>
-            <GroupItem group={group} getGroups={getGroups} />
+            <GroupItem group={group} getGroupsFunc={getGroupsFunc} />
           </>
         ))
       ) : (
@@ -91,7 +91,7 @@ export const Groups = () => {
             placeholder="Digite o nome"
             onChange={(e) => setNewGroup(e.target.value)}
           />
-          <Button onClick={createNewGroup} width="80%">
+          <Button onClick={createNewGroupFunc} width="80%">
             Salvar
           </Button>
         </S.CreateGroupContainer>

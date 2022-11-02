@@ -13,7 +13,7 @@ export const ProductCard = ({
   groups,
   deleteHero,
   handleDeleteHero,
-  getGroups,
+  getGroupsFunc,
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -49,7 +49,7 @@ export const ProductCard = ({
         console.log(error);
       })
       .finally(() => {
-        getGroups();
+        getGroupsFunc();
       });
     Swal.fire("adicionado");
   };

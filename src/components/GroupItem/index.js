@@ -2,13 +2,12 @@ import * as S from "./styles";
 import { Link } from "react-router-dom";
 import hero from "../../static/images/hero.jpg";
 import { MdDelete } from "react-icons/md";
-import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
+import { deleteGroup } from "../../services/groups.service";
 
-export const GroupItem = ({ group, getGroups }) => {
+export const GroupItem = ({ group, getGroupsFunc }) => {
   const handleDeleteGroup = () => {
-    localAPI
-      .delete(`/grupos/${group.id}`)
+    deleteGroup(group.id)
       .then(() => {
         Swal.fire("Grupo deletado com sucesso");
       })
@@ -16,7 +15,7 @@ export const GroupItem = ({ group, getGroups }) => {
         Swal.fire("Não foi possível deletar o seu grupo");
       })
       .finally(() => {
-        getGroups();
+        getGroupsFunc();
       });
   };
 
@@ -27,7 +26,7 @@ export const GroupItem = ({ group, getGroups }) => {
         <Link to={`/groups/${group.id}`}>
           <h2>{group.title}</h2>
         </Link>
-        <p>{group.members.length} membros</p>
+        <p>{group.members?.length} membros</p>
         <div>
           {group &&
             group.members?.map((member) => (

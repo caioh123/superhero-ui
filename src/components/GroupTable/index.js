@@ -4,7 +4,8 @@ import localAPI from "../../services/localApi";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
-export const GroupTable = ({ groups, getGroups }) => {
+export const GroupTable = ({ groups, getGroupsFunc }) => {
+  console.log(groups);
   const handleDeleteGroup = (id) => {
     localAPI
       .delete(`/grupos/${id}`)
@@ -15,7 +16,7 @@ export const GroupTable = ({ groups, getGroups }) => {
         Swal.fire("Não foi possível deletar o seu grupo");
       })
       .finally(() => {
-        getGroups();
+        getGroupsFunc();
       });
   };
   return (
@@ -32,12 +33,12 @@ export const GroupTable = ({ groups, getGroups }) => {
           <tr key={group.id}>
             <td>
               <Link to={`/groups/${group.id}`}>
-                <strong>{group.title}</strong>
+                <strong>{group?.title}</strong>
               </Link>
             </td>
             <td>
               <div>
-                <strong>{group.members.length}</strong>
+                <strong>{group.members?.length}</strong>
               </div>
             </td>
             <td>
